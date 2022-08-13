@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+/* //font */
+.font-primary {
+  font-family: Poppins;
+}
+.color-primary {
+  color: rgb(255, 103, 129);
+}
+.error {
+  color: red;
+}
+/* //text */
+.cursor-pointer {
+  cursor: pointer;
+}
+.text-align-center {
+  text-align: center;
+}
+.text-align-start {
+  text-align: start;
+}
+/*width*/
+.w-100 {
+  width: 100%;
+}
+/*margin*/
+.m-auto {
+  margin: auto;
+}
+/* flex */
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+/* //justify */
+.justify-content-start {
+  justify-content: flex-start;
+}
+.justify-content-end {
+  justify-content: flex-end;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-around {
+  justify-content: space-around;
+}
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
+
+/* //align  */
+.align-content-start {
+  align-content: flex-start;
+}
+.align-content-end {
+  align-content: flex-end;
+}
+.align-content-center {
+  align-content: center;
+}
+.align-content-between {
+  align-content: space-between;
+}
+.align-content-around {
+  align-content: space-around;
+}
+.align-content-evenly {
+  align-content: space-evenly;
+}
+
+.align-items-stretch {
+  align-items: stretch;
+}
+.align-items-start {
+  align-items: flex-start;
+}
+.align-items-center {
+  align-items: center;
+}
+.align-items-end {
+  align-items: flex-end;
+}
+.align-items-baseline {
+  align-items: baseline;
+}
+
+.align-self-auto {
+  align-self: auto;
+}
+.align-self-start {
+  align-self: flex-start;
+}
+.align-self-center {
+  align-self: center;
+}
+.align-self-end {
+  align-self: flex-end;
+}
+.align-self-stretch {
+  align-self: stretch;
+}
+.align-self-baseline {
+  align-self: baseline;
+}

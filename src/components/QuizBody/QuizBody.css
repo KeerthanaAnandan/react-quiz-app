@@ -1,0 +1,139 @@
+.quiz-body-container {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  /* position: relative; */
+  margin: 0 auto;
+  width: 50vw;
+  /* height: 100vh; */
+  /* width: 100vw;
+  height: 100vh; */
+
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  /* text-align: center; */
+}
+/* .quiz-question {
+  padding-left: 1px;
+} */
+.quiz-option-container {
+  /* background-color: red; */
+  text-align: start;
+}
+.quiz-bottom-content {
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+  padding: 60px;
+  /* margin: 10px; */
+  /* display: inline-block;
+
+  align-self: center; */
+}
+@media screen and (max-width: 600px) {
+  .quiz-bottom-content {
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    padding: 20px;
+  }
+}
+.quiz-bottom-btn {
+  margin: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.btn-inactive {
+  color: rgb(165, 155, 157);
+}
+.btn-active {
+  color: rgb(250, 129, 150);
+}
+.btn-active:hover {
+  color: #000;
+}
+
+/*text input*/
+input[type="text"] {
+  font-size: 20px;
+}
+.text {
+  border: none;
+  width: 89%;
+  padding: 10px 20px;
+  display: block;
+  height: 15px;
+  border-radius: 10px;
+  /* background: rgba(184, 175, 180, 0.651); */
+  border: 2px solid rgba(255, 255, 255, 0);
+  overflow: hidden;
+  margin-top: 15px;
+  transition: all 0.5s ease-in-out;
+}
+
+.text:focus {
+  outline: 0;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0);
+}
+
+.text:focus + span {
+  opacity: 0.6;
+}
+
+/* //radio */
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #000;
+  font-size: x-large;
+  font-weight: 600;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: #f87da9;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}

@@ -1,0 +1,13 @@
+a > img {
+  width: 100px;
+  height: 50px;
+  margin: 20px;
+}
+
+.main-btn {
+  padding: 10px 20px 10px 20px;
+  color: #000;
+  background-color: pink;
+  border: none;
+  cursor: pointer;
+}
