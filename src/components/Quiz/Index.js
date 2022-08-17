@@ -24,7 +24,7 @@ export default function Quiz() {
               alt="Course Cre8Her"
             />
           </a>
-          <div className="quiz-count">{count}/6</div>
+          <div className="quiz-count">{count}/7</div>
         </div>
         {/* BODY */}
         <QuizBody />

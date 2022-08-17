@@ -1,5 +1,5 @@
 .results-container {
-  background: url("../../assets/bg.jpg") no-repeat center center fixed;
+  background: url("../../assets/lbg.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -18,7 +18,8 @@
   width: 80vw;
 }
 .laye {
-  background-color: rgba(248, 196, 220, 0.76);
+  /* background-color: rgba(248, 196, 220, 0.76); */
+  background-color: rgba(239, 217, 213, 0.767);
   position: absolute;
   top: 0;
   left: 0;
@@ -37,6 +38,10 @@
   --color-1: #df8453;
   --color-2: #3d8dae;
   --color-3: #e4a9a8;
+}
+
+.text-underline-offset-1 {
+  text-underline-offset: 5px;
 }
 @keyframes color-animation {
   0% {
@@ -78,12 +83,14 @@
     width: 100vw;
   }
   .laye {
-    background-color: rgba(248, 196, 220, 0.76);
+    /* background-color: rgba(248, 196, 220, 0.76); */
+    background-color: rgba(239, 217, 213, 0.633);
     /* position: absolute;
     top: 0;
     left: 0;
     width: 100%; */
-    height: 130%;
+    /* height: 130%; */
+    height: max-content;
   }
   .click-img {
     display: none;

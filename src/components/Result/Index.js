@@ -1,6 +1,6 @@
 import React from "react";
-// import vid from "../../assets/vid.mov";
-import img from "../../assets/bg.jpg";
+import vid from "../../assets/vid.mp4";
+// import img from "../../assets/bg.jpg";
 import "./Result.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -36,7 +36,7 @@ export default function Results() {
               sizes="(max-width: 880px) 100vw, 880px"
             ></img>
             {/* <div className=" "> */}
-            {/* <video
+            <video
               class="video"
               controls
               autoplay
@@ -44,8 +44,8 @@ export default function Results() {
               height="400"
               src={vid}
               type="video/mp4"
-            ></video> */}
-            <img src={img} alt="" width="500" class="video" height="400" />
+            ></video>
+            {/* <img src={img} alt="" width="500" class="video" height="400" /> */}
             {/* </div> */}
           </div>
 
@@ -55,7 +55,11 @@ export default function Results() {
               data-aos="zoom-in"
               data-aos-duration="2000"
             >
-              YOUR COURSE TOPIC IS "{localStorage.getItem("result")}""
+              YOUR COURSE TOPIC IS "{" "}
+              <span className="text-underline text-underline-offset-1">
+                {localStorage.getItem("result")}
+              </span>
+              "
             </h2>
             <p>
               Based on your responses, your primary focus now should be on

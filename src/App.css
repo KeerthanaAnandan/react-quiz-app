@@ -13,6 +13,9 @@
 .cursor-pointer {
   cursor: pointer;
 }
+.text-underline {
+  text-decoration: underline;
+}
 .text-align-center {
   text-align: center;
 }

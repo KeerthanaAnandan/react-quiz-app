@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./QuizBody.css";
-// import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+//import { Link } from "react-router-dom";
 
 export default function QuizBody() {
   // const history = useHistory();
+  const navigate = useNavigate();
   //stupid
   const [error, setError] = useState("");
   const [first, setFirst] = useState(0);
@@ -12,9 +15,15 @@ export default function QuizBody() {
   const [third, setThird] = useState(0);
   const [fourth, setFourth] = useState(0);
   const [fifth, setFifth] = useState(0);
+  const [sixth, setSixth] = useState(0);
   const [count, setCount] = useState(0);
   const [option, setOption] = useState(["", "", "", ""]);
   const [data, setData] = useState([
+    {
+      question:
+        "Which course topics excite you the most and would you like to build your successful online course around (name all that apply, short answers are best, up to 4)?",
+      options: [],
+    },
     {
       question:
         "Which topic [of answers given in Question #1] best personifies how you see yourself and your brand?",
@@ -27,7 +36,7 @@ export default function QuizBody() {
     },
     {
       question:
-        "Out of [X,Y,Z = responses given in Question 3], which of these communities/groups are you most passionate about teaching?",
+        "Out of the responses given in Question 3, which of these communities/groups are you most passionate about teaching?",
       options: [],
     },
     {
@@ -85,6 +94,10 @@ export default function QuizBody() {
     console.log("success5", e.target.value);
     setFifth(e.target.value);
   }
+  function handleChangeSix(e) {
+    console.log("success5", e.target.value);
+    setSixth(e.target.value);
+  }
   function nextHandler() {
     if (count == 0) {
       option.map((itm) => {
@@ -101,7 +114,7 @@ export default function QuizBody() {
 
           // }
         } else {
-          setError("Fill all the fields!");
+          setError("Fill in all required fields");
         }
       });
     }
@@ -145,21 +158,37 @@ export default function QuizBody() {
         setError("Select any option!");
       }
     }
-
+    if (count == 6) {
+      if (sixth != "") {
+        setError("");
+        setCount(count + 1);
+      } else {
+        setError("Select any option!");
+      }
+    }
     // if (count == 5) {
     //   // history.push("/home");
     //   console.log(zero, first, second, third, fourth, fifth);
     // }
   }
   function finalNextHandler() {
+    if (sixth != "") {
+      setError("");
+      goNext();
+      console.log("final going ");
+    } else {
+      setError("Select any option!");
+    }
+  }
+  function goNext() {
     // console.log(first, second, third, fourth, fifth);
-    let arr = [first, second, third, fourth, fifth];
+    let arr = [first, second, third, fourth, fifth, sixth];
     // console.log(arr, "arr");
     // arr.map((itm) => {
     //   console.log(itm);
 
     // });
-    var arr1 = [first, second, third, fourth, fifth];
+    var arr1 = [first, second, third, fourth, fifth, sixth];
     var mf = 1;
     var m = 0;
     var item;
@@ -178,6 +207,8 @@ export default function QuizBody() {
 
     console.log(option[item]);
     localStorage.setItem("result", option[item]);
+    // history.push("/results");
+    navigate("/results");
   }
   function previousHandler() {
     if (count > 0) {
@@ -370,6 +401,22 @@ export default function QuizBody() {
                 ))}
               </div>
             )}
+            {count == 6 && (
+              <div data-aos="fade-up " data-aos-duration="1000">
+                {data[6].options.map((itm, index) => (
+                  <p key={index}>
+                    <input
+                      value={index}
+                      type="radio"
+                      id={`q${6}${index}`}
+                      name={`q${6}`}
+                      onChange={handleChangeSix}
+                    />
+                    <label htmlFor={`q${6}${index}`}>{itm}</label>
+                  </p>
+                ))}
+              </div>
+            )}
             {/* </fieldset> */}
             {/* {data.map((itm, index) => ( */}
             {/* <p>
@@ -436,7 +483,7 @@ export default function QuizBody() {
           NEXT
         </div> */}
 
-        {count < 5 ? (
+        {count < 6 ? (
           <div
             className="quiz-bottom-btn btn-active cursor-pointer"
             onClick={nextHandler}
@@ -445,13 +492,20 @@ export default function QuizBody() {
             NEXT
           </div>
         ) : (
-          <Link
+          // <Link
+          //   className="quiz-bottom-btn btn-active cursor-pointer"
+          //   to="/results"
+          //   onClick={finalNextHandler}
+          // >
+          //   NEXT
+          // </Link>
+          <div
             className="quiz-bottom-btn btn-active cursor-pointer"
             to="/results"
             onClick={finalNextHandler}
           >
             NEXT
-          </Link>
+          </div>
         )}
       </div>
       {/* <Link className="quiz-bottom-btn btn-active cursor-pointer" to="/results">
