@@ -10,12 +10,12 @@ export default function QuizBody() {
   const navigate = useNavigate();
   //stupid
   const [error, setError] = useState("");
-  const [first, setFirst] = useState(0);
-  const [second, setSecond] = useState(0);
-  const [third, setThird] = useState(0);
-  const [fourth, setFourth] = useState(0);
-  const [fifth, setFifth] = useState(0);
-  const [sixth, setSixth] = useState(0);
+  const [first, setFirst] = useState(null);
+  const [second, setSecond] = useState(null);
+  const [third, setThird] = useState(null);
+  const [fourth, setFourth] = useState(null);
+  const [fifth, setFifth] = useState(null);
+  const [sixth, setSixth] = useState(null);
   const [count, setCount] = useState(0);
   const [option, setOption] = useState(["", "", "", ""]);
   const [data, setData] = useState([
@@ -26,12 +26,14 @@ export default function QuizBody() {
     },
     {
       question:
-        "Which topic [of answers given in Question #1] best personifies how you see yourself and your brand?",
+        // "Which topic [of answers given in Question #1] best personifies how you see yourself and your brand?",
+        "Which one of these topics best personifies how you see yourself and your brand?",
       options: [],
     },
     {
       question:
-        "What communities/types of people are interested in the topics you want to teach (ie twenty-somethings out of college, retirees, minority moms etc)?",
+        // "What communities/types of people are interested in the topics you want to teach (ie twenty-somethings out of college, retirees, minority moms etc)?",
+        "Out of the audiences interested in each of these topics, which one of these audiences are you most passionate about teaching?",
       options: [],
     },
     {
@@ -41,7 +43,8 @@ export default function QuizBody() {
     },
     {
       question:
-        "Have you done a search on your course topic? Where have you seen the most interest and demand in the market?",
+        // "Have you done a search on your course topic? Where have you seen the most interest and demand in the market?",
+        "Have you done a search on your course topic? where would you say that you have seen the most interest and demand in the market?",
       options: [],
     },
     {
@@ -99,15 +102,19 @@ export default function QuizBody() {
     setSixth(e.target.value);
   }
   function nextHandler() {
+    let mycount = 0;
     if (count == 0) {
       option.map((itm) => {
-        if (itm != "") {
-          console.log("in");
+        if (itm.trim() != "") {
+          mycount++;
+          console.log("in", mycount);
           setError("");
           data.map((itm) => {
             itm.options = option;
           });
-          setCount(count + 1);
+          if (mycount == 4) {
+            setCount(count + 1);
+          }
           // if (count < 5) {
 
           //   setCount(count + 1);
@@ -258,15 +265,17 @@ export default function QuizBody() {
       {count == 0 ? (
         <div data-aos="fade-up">
           <form>
+            {/* value={itm.question} */}
             {option.map((itm, index) => (
               <input
                 key={index}
-                value={itm.question}
+                value={option[index]}
                 type="text"
                 id="fname"
                 name="fname"
                 className="text"
                 placeholder="Type your answer..."
+                maxlength="10"
                 onChange={(event) => handleInputChange(event, index)}
                 // onChange={handleInputChange(option[0])}
               />
@@ -321,7 +330,7 @@ export default function QuizBody() {
               </div>
             )} */}
             {count == 1 && (
-              <div data-aos="fade-up" data-aos-duration="1000">
+              <div>
                 {" "}
                 {data[1].options.map((itm, index) => (
                   <p key={index}>
@@ -330,6 +339,7 @@ export default function QuizBody() {
                       type="radio"
                       id={`q${1}${index}`}
                       name={`q${1}`}
+                      checked={index == first}
                       onChange={handleChangeOne}
                     />
                     <label htmlFor={`q${1}${index}`}>{itm}</label>
@@ -338,7 +348,7 @@ export default function QuizBody() {
               </div>
             )}
             {count == 2 && (
-              <div data-aos="fade-up" data-aos-duration="1000">
+              <div>
                 {data[2].options.map((itm, index) => (
                   <p key={index}>
                     <input
@@ -346,6 +356,7 @@ export default function QuizBody() {
                       type="radio"
                       id={`q${2}${index}`}
                       name={`q${2}`}
+                      checked={index == second}
                       onChange={handleChangeTwo}
                     />
                     <label htmlFor={`q${2}${index}`}>{itm}</label>
@@ -354,7 +365,7 @@ export default function QuizBody() {
               </div>
             )}
             {count == 3 && (
-              <div data-aos="fade-up" data-aos-duration="1000">
+              <div>
                 {data[3].options.map((itm, index) => (
                   <p key={index}>
                     <input
@@ -362,6 +373,7 @@ export default function QuizBody() {
                       type="radio"
                       id={`q${3}${index}`}
                       name={`q${3}`}
+                      checked={index == third}
                       onChange={handleChangeThree}
                     />
                     <label htmlFor={`q${3}${index}`}>{itm}</label>
@@ -370,7 +382,7 @@ export default function QuizBody() {
               </div>
             )}
             {count == 4 && (
-              <div data-aos="fade-up" data-aos-duration="1000">
+              <div>
                 {data[4].options.map((itm, index) => (
                   <p key={index}>
                     <input
@@ -378,6 +390,7 @@ export default function QuizBody() {
                       type="radio"
                       id={`q${4}${index}`}
                       name={`q${4}`}
+                      checked={index == fourth}
                       onChange={handleChangeFour}
                     />
                     <label htmlFor={`q${4}${index}`}>{itm}</label>
@@ -386,7 +399,7 @@ export default function QuizBody() {
               </div>
             )}
             {count == 5 && (
-              <div data-aos="fade-up " data-aos-duration="1000">
+              <div>
                 {data[5].options.map((itm, index) => (
                   <p key={index}>
                     <input
@@ -394,6 +407,7 @@ export default function QuizBody() {
                       type="radio"
                       id={`q${5}${index}`}
                       name={`q${5}`}
+                      checked={index == fifth}
                       onChange={handleChangeFive}
                     />
                     <label htmlFor={`q${5}${index}`}>{itm}</label>
@@ -402,7 +416,7 @@ export default function QuizBody() {
               </div>
             )}
             {count == 6 && (
-              <div data-aos="fade-up " data-aos-duration="1000">
+              <div>
                 {data[6].options.map((itm, index) => (
                   <p key={index}>
                     <input
@@ -410,6 +424,7 @@ export default function QuizBody() {
                       type="radio"
                       id={`q${6}${index}`}
                       name={`q${6}`}
+                      checked={index == sixth}
                       onChange={handleChangeSix}
                     />
                     <label htmlFor={`q${6}${index}`}>{itm}</label>
@@ -471,7 +486,10 @@ export default function QuizBody() {
       <br />
       <div className="quiz-bottom-content flex flex-row">
         {/* <!--onClick={previousHandler}--> */}
-        <div className="quiz-bottom-btn btn-inactive cursor-pointer">
+        <div
+          onClick={previousHandler}
+          className="quiz-bottom-btn btn-inactive cursor-pointer"
+        >
           PREVIOUS
         </div>
 

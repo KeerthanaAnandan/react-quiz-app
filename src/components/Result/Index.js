@@ -1,5 +1,5 @@
 import React from "react";
-import vid from "../../assets/vid.mp4";
+import vid from "../../assets/vid1.mp4";
 // import img from "../../assets/bg.jpg";
 import "./Result.css";
 import AOS from "aos";
@@ -75,13 +75,27 @@ export default function Results() {
               business you have always dreamed of.
             </p>
             <p>
-              These quiz results were designed to rid you of any confusion or
+              These quiz results were designed to: rid you of any confusion or
+              doubt around your course topic, and set you on a path to confident
+              creation.
+              {/* These quiz results were designed to rid you of any confusion or
               doubt around what your topic should be, and set you on a path to
-              confident creation. But, as they say, “the fortune is in the
-              follow-up”. So, that part is up to you. But not to worry at all,
-              I’m here — rooting you on every step of the way
+              confident creation. */}
+              But, as they say, “the fortune is in the follow-up”. So, that part
+              is up to you. But not to worry at all, I’m here — rooting you on
+              every step of the way
             </p>
             <p>Warmest Regards, Brandhyze</p>
+
+            <p className="text-center  cursor-pointer text-underline ">
+              <a
+                className="no-decoration color-primary text-underline"
+                href="https://www.coursecre8her.com/"
+              >
+                {" "}
+                Click here To Return to CourseCre8Her.com
+              </a>
+            </p>
           </div>
         </div>
         {/* <video width="500px" height="500px" controls="controls">

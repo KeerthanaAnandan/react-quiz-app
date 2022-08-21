@@ -16,6 +16,9 @@
 .text-underline {
   text-decoration: underline;
 }
+.no-decoration {
+  text-decoration: none;
+}
 .text-align-center {
   text-align: center;
 }
