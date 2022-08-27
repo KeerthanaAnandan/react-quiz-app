@@ -9,6 +9,11 @@
 .error {
   color: red;
 }
+.black-bg {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
 /* //text */
 .cursor-pointer {
   cursor: pointer;

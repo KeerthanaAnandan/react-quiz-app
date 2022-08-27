@@ -215,7 +215,7 @@ export default function QuizBody() {
     console.log(option[item]);
     localStorage.setItem("result", option[item]);
     // history.push("/results");
-    navigate("/results");
+    navigate("/form");
   }
   function previousHandler() {
     if (count > 0) {
@@ -275,7 +275,7 @@ export default function QuizBody() {
                 name="fname"
                 className="text"
                 placeholder="Type your answer..."
-                maxlength="10"
+                maxLength="10"
                 onChange={(event) => handleInputChange(event, index)}
                 // onChange={handleInputChange(option[0])}
               />
@@ -519,7 +519,8 @@ export default function QuizBody() {
           // </Link>
           <div
             className="quiz-bottom-btn btn-active cursor-pointer"
-            to="/results"
+            // to="/results"
+            to="/form"
             onClick={finalNextHandler}
           >
             NEXT

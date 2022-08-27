@@ -6,6 +6,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Results from "./components/Result/Index";
+import Form from "./components/Form/Index";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,7 +14,16 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="results" element={<Results />} />
+        <Route path="form" element={<Form />} />
+        {/* <Route path="results" element={<Results />} /> */}
+        {/* <Route
+          exact
+          path="/results"
+          render={() => {
+            window.location.href = "results.html";
+          }}
+        /> */}
+        <Route exact path="/results.html" element={<Results />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
