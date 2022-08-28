@@ -18,8 +18,8 @@ export default function Results() {
           </a>
         </div>
         {/* BODY */}
-        {/* <h2 class="title">
-          <span class="title-word title-word-1">click here </span>
+        {/* <h2 className="title">
+          <span className="title-word title-word-1">click here </span>
         </h2> */}
 
         <div className="results-content font-primary">
@@ -29,29 +29,29 @@ export default function Results() {
               width="150"
               height="164"
               src="https://www.amyporterfield.com/wp-content/uploads/2022/07/click-to-watch.png"
-              class="arrow click-img"
+              className="arrow click-img"
               alt="click to watch"
               loading="lazy"
-              srcset="https://www.amyporterfield.com/wp-content/uploads/2022/07/click-to-watch.png 880w, https://www.amyporterfield.com/wp-content/uploads/2022/07/click-to-watch-632x700.png 632w, https://www.amyporterfield.com/wp-content/uploads/2022/07/click-to-watch-768x850.png 768w"
+              srcSet="https://www.amyporterfield.com/wp-content/uploads/2022/07/click-to-watch.png 880w, https://www.amyporterfield.com/wp-content/uploads/2022/07/click-to-watch-632x700.png 632w, https://www.amyporterfield.com/wp-content/uploads/2022/07/click-to-watch-768x850.png 768w"
               sizes="(max-width: 880px) 100vw, 880px"
             ></img>
             {/* <div className=" "> */}
             <video
-              class="video"
+              className="video"
               controls
-              autoplay
+              autoPlay
               width="500"
               height="400"
               src={vid}
               type="video/mp4"
             ></video>
-            {/* <img src={img} alt="" width="500" class="video" height="400" /> */}
+            {/* <img src={img} alt="" width="500" className="video" height="400" /> */}
             {/* </div> */}
           </div>
 
           <div className="results-text-margin">
             <h2
-              class="color-primary "
+              className="color-primary "
               data-aos="zoom-in"
               data-aos-duration="2000"
             >

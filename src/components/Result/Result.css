@@ -81,6 +81,7 @@
     /* position: relative; */
     margin: 0 auto;
     width: 100vw;
+    height: max-content;
   }
   .laye {
     /* background-color: rgba(248, 196, 220, 0.76); */

@@ -18,43 +18,51 @@ export default function QuizBody() {
   const [sixth, setSixth] = useState(null);
   const [count, setCount] = useState(0);
   const [option, setOption] = useState(["", "", "", ""]);
+  const [optioned, setOptioned] = useState([]);
   const [data, setData] = useState([
     {
+      //1
       question:
         "Which course topics excite you the most and would you like to build your successful online course around (name all that apply, short answers are best, up to 4)?",
       options: [],
     },
     {
+      //2
       question:
         // "Which topic [of answers given in Question #1] best personifies how you see yourself and your brand?",
         "Which one of these topics best personifies how you see yourself and your brand?",
       options: [],
     },
     {
+      //3
       question:
         // "What communities/types of people are interested in the topics you want to teach (ie twenty-somethings out of college, retirees, minority moms etc)?",
         "Out of the audiences interested in each of these topics, which one of these audiences are you most passionate about teaching?",
       options: [],
     },
     {
+      //4
       question:
         "Out of the responses given in Question 3, which of these communities/groups are you most passionate about teaching?",
       options: [],
     },
     {
+      //5
       question:
         // "Have you done a search on your course topic? Where have you seen the most interest and demand in the market?",
-        "Have you done a search on your course topic? where would you say that you have seen the most interest and demand in the market?",
+        "Have you done a search on your course topic? Where would you say that you have seen the most interest and demand in the market?",
       options: [],
     },
     {
+      //6
       question:
-        "Would a course on [response to Question 1] solve an urgent pain point or frustration for your audience?",
+        "Which of these topics would allow you to solve an urgent pain point or frustration for your audience (click all that apply)?",
       options: [],
     },
     {
+      //7
       question:
-        "What topic area [from Question 1] do you have the most authority, proven results, or a track record?",
+        "What topic area do you have the most authority, proven results, or a track record?",
       options: [],
     },
   ]);
@@ -62,6 +70,7 @@ export default function QuizBody() {
     // localStorage.setItem("count", count + 1);
     window.localStorage.setItem("count", count + 1);
     window.dispatchEvent(new Event("storage"));
+    setError("");
   }, [count]); // <-- here put the parameter to listen
   // const [data, setData] = useState([
   //   "Which topic [of answers given in Question #1] best personifies how you see yourself and your brand?",
@@ -76,6 +85,9 @@ export default function QuizBody() {
   //   setZero(e.target.value);
   //   // localStorage.setItem('first' ,e.target.value )
   // }
+  function handleChangeCommon(e) {
+    console.log("wtf", e.target.value);
+  }
   function handleChangeOne(e) {
     console.log("success1", e.target.value);
 
@@ -112,7 +124,7 @@ export default function QuizBody() {
           data.map((itm) => {
             itm.options = option;
           });
-          if (mycount == 4) {
+          if (mycount >= 3) {
             setCount(count + 1);
           }
           // if (count < 5) {
@@ -126,7 +138,7 @@ export default function QuizBody() {
       });
     }
     if (count == 1) {
-      if (first != "") {
+      if (first != "" && first != null) {
         setError("");
         setCount(count + 1);
       } else {
@@ -134,7 +146,7 @@ export default function QuizBody() {
       }
     }
     if (count == 2) {
-      if (second != "") {
+      if (second != "" && second != null) {
         setError("");
         setCount(count + 1);
       } else {
@@ -142,7 +154,7 @@ export default function QuizBody() {
       }
     }
     if (count == 3) {
-      if (third != "") {
+      if (third != "" && third != null) {
         setError("");
         setCount(count + 1);
       } else {
@@ -150,7 +162,7 @@ export default function QuizBody() {
       }
     }
     if (count == 4) {
-      if (fourth != "") {
+      if (fourth != "" && fourth != null) {
         setError("");
         setCount(count + 1);
       } else {
@@ -158,7 +170,7 @@ export default function QuizBody() {
       }
     }
     if (count == 5) {
-      if (fifth != "") {
+      if (fifth != "" && fifth != null) {
         setError("");
         setCount(count + 1);
       } else {
@@ -166,7 +178,7 @@ export default function QuizBody() {
       }
     }
     if (count == 6) {
-      if (sixth != "") {
+      if (sixth != "" && sixth != null) {
         setError("");
         setCount(count + 1);
       } else {
@@ -236,6 +248,12 @@ export default function QuizBody() {
     newArr[index] = e.target.value; // replace e.target.value with whatever you want to change it to
 
     setOption(newArr);
+    // let lolArr = [];
+    // lolArr.push(e.target.value);
+    // console.log(lolArr, "arro");
+    // setOptioned(lolArr);
+    // setTheArray([...theArray, newElement]);
+    setOptioned([...optioned, e.target.value]);
     // setOption((option) => {
     //   const list = option.list.map((item, j) => {
     //     if (j === index) {
@@ -275,7 +293,7 @@ export default function QuizBody() {
                 name="fname"
                 className="text"
                 placeholder="Type your answer..."
-                maxLength="10"
+                maxLength="15"
                 onChange={(event) => handleInputChange(event, index)}
                 // onChange={handleInputChange(option[0])}
               />
@@ -332,104 +350,122 @@ export default function QuizBody() {
             {count == 1 && (
               <div>
                 {" "}
-                {data[1].options.map((itm, index) => (
-                  <p key={index}>
-                    <input
-                      value={index}
-                      type="radio"
-                      id={`q${1}${index}`}
-                      name={`q${1}`}
-                      checked={index == first}
-                      onChange={handleChangeOne}
-                    />
-                    <label htmlFor={`q${1}${index}`}>{itm}</label>
-                  </p>
-                ))}
+                {data[1].options.map(
+                  (itm, index) =>
+                    itm != "" && (
+                      <p key={index}>
+                        <input
+                          value={index}
+                          type="radio"
+                          id={`q${1}${index}`}
+                          name={`q${1}`}
+                          checked={index == first}
+                          onChange={handleChangeOne}
+                        />
+                        <label htmlFor={`q${1}${index}`}>{itm}</label>
+                      </p>
+                    )
+                )}
               </div>
             )}
             {count == 2 && (
               <div>
-                {data[2].options.map((itm, index) => (
-                  <p key={index}>
-                    <input
-                      value={index}
-                      type="radio"
-                      id={`q${2}${index}`}
-                      name={`q${2}`}
-                      checked={index == second}
-                      onChange={handleChangeTwo}
-                    />
-                    <label htmlFor={`q${2}${index}`}>{itm}</label>
-                  </p>
-                ))}
+                {data[2].options.map(
+                  (itm, index) =>
+                    itm != "" && (
+                      <p key={index}>
+                        <input
+                          value={index}
+                          type="radio"
+                          id={`q${2}${index}`}
+                          name={`q${2}`}
+                          checked={index == second}
+                          onChange={handleChangeTwo}
+                        />
+                        <label htmlFor={`q${2}${index}`}>{itm}</label>
+                      </p>
+                    )
+                )}
               </div>
             )}
             {count == 3 && (
               <div>
-                {data[3].options.map((itm, index) => (
-                  <p key={index}>
-                    <input
-                      value={index}
-                      type="radio"
-                      id={`q${3}${index}`}
-                      name={`q${3}`}
-                      checked={index == third}
-                      onChange={handleChangeThree}
-                    />
-                    <label htmlFor={`q${3}${index}`}>{itm}</label>
-                  </p>
-                ))}
+                {data[3].options.map(
+                  (itm, index) =>
+                    itm != "" && (
+                      <p key={index}>
+                        <input
+                          value={index}
+                          type="radio"
+                          id={`q${3}${index}`}
+                          name={`q${3}`}
+                          checked={index == third}
+                          onChange={handleChangeThree}
+                        />
+                        <label htmlFor={`q${3}${index}`}>{itm}</label>
+                      </p>
+                    )
+                )}
               </div>
             )}
             {count == 4 && (
               <div>
-                {data[4].options.map((itm, index) => (
-                  <p key={index}>
-                    <input
-                      value={index}
-                      type="radio"
-                      id={`q${4}${index}`}
-                      name={`q${4}`}
-                      checked={index == fourth}
-                      onChange={handleChangeFour}
-                    />
-                    <label htmlFor={`q${4}${index}`}>{itm}</label>
-                  </p>
-                ))}
+                {data[4].options.map(
+                  (itm, index) =>
+                    itm != "" && (
+                      <p key={index}>
+                        <input
+                          value={index}
+                          type="radio"
+                          id={`q${4}${index}`}
+                          name={`q${4}`}
+                          checked={index == fourth}
+                          onChange={handleChangeFour}
+                        />
+                        <label htmlFor={`q${4}${index}`}>{itm}</label>
+                      </p>
+                    )
+                )}
               </div>
             )}
             {count == 5 && (
               <div>
-                {data[5].options.map((itm, index) => (
-                  <p key={index}>
-                    <input
-                      value={index}
-                      type="radio"
-                      id={`q${5}${index}`}
-                      name={`q${5}`}
-                      checked={index == fifth}
-                      onChange={handleChangeFive}
-                    />
-                    <label htmlFor={`q${5}${index}`}>{itm}</label>
-                  </p>
-                ))}
+                {data[5].options.map(
+                  (itm, index) =>
+                    itm != "" && (
+                      <p key={index}>
+                        <input
+                          value={index}
+                          type="radio"
+                          id={`q${5}${index}`}
+                          name={`q${5}`}
+                          checked={index == fifth}
+                          onChange={handleChangeFive}
+                        />
+                        <label htmlFor={`q${5}${index}`}>{itm}</label>
+                      </p>
+                    )
+                )}
               </div>
             )}
             {count == 6 && (
               <div>
-                {data[6].options.map((itm, index) => (
-                  <p key={index}>
-                    <input
-                      value={index}
-                      type="radio"
-                      id={`q${6}${index}`}
-                      name={`q${6}`}
-                      checked={index == sixth}
-                      onChange={handleChangeSix}
-                    />
-                    <label htmlFor={`q${6}${index}`}>{itm}</label>
-                  </p>
-                ))}
+                {data[6].options.map(
+                  (itm, index) =>
+                    itm != "" && (
+                      <p key={index}>
+                        <input
+                          value={index}
+                          type="radio"
+                          id={`q${6}${index}`}
+                          name={`q${6}`}
+                          checked={index == sixth}
+                          onChange={handleChangeSix}
+                        />
+                        <label htmlFor={`q${6}${index}`}>{itm}</label>
+                      </p>
+                    )
+                )}
               </div>
             )}
             {/* </fieldset> */}
@@ -475,6 +511,22 @@ export default function QuizBody() {
               />
               <label htmlFor="test3">Orange</label>
             </p> */}
+            {/* <div>
+              {optioned}
+              {optioned.map((itm, index) => (
+                <p key={index}>
+                  <input
+                    value={index}
+                    type="radio"
+                    id={`q${count}${index}`}
+                    name={`q${count}`}
+                    checked={index == first}
+                    onChange={handleChangeCommon}
+                  />
+                  <label htmlFor={`q${1}${index}`}>{itm}</label>
+                </p>
+              ))}
+            </div> */}
           </form>
         </div>
       )}

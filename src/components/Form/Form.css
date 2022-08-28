@@ -66,7 +66,7 @@
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
 }
-form {
+.footer-container form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,7 +77,7 @@ form {
   text-align: center;
 }
 
-form input {
+.footer-container form input {
   display: flex;
   flex-direction: row;
   width: 500px !important;
@@ -90,7 +90,6 @@ form input {
   transition: 0.5s;
   margin: auto;
 }
-
 form > input:focus {
   outline: none;
 }
