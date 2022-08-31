@@ -1,6 +1,9 @@
 #hide {
   display: none;
 }
+.texts {
+  font-size: 12px !important;
+}
 .footer-container {
   display: flex;
   flex-direction: row !important;
@@ -123,7 +126,7 @@ form input[type="submit"] {
   background: rgb(255, 103, 129) !important;
   border: none;
   border-radius: 1px;
-  color: #fff;
+  color: #fff !important;
   font-size: x-large;
   line-height: normal;
   margin: auto;
@@ -135,10 +138,10 @@ form input[type="submit"] {
 }
 
 .button:hover {
-  background: transparent;
-  color: rgb(255, 103, 129);
+  background: transparent !important;
+  color: rgb(255, 103, 129) !important;
   cursor: pointer;
-  border: 1px solid rgb(255, 103, 129);
+  border: 1px solid rgb(255, 103, 129) !important;
 }
 
 /* Mailchimp CSS */
@@ -246,7 +249,7 @@ form input[type="submit"] {
     box-shadow: none;
   }
   .texts {
-    font-size: 13px;
+    font-size: 10px;
     line-height: 20px;
   }
 

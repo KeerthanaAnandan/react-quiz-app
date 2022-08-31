@@ -43,7 +43,7 @@ export default function QuizBody() {
     {
       //4
       question:
-        "Out of the responses given in Question 3, which of these communities/groups are you most passionate about teaching?",
+        "Out of these topics that are of interest to you, which one of the communities that are associated with them are you most passionate about teaching?",
       options: [],
     },
     {
@@ -62,7 +62,7 @@ export default function QuizBody() {
     {
       //7
       question:
-        "What topic area do you have the most authority, proven results, or a track record?",
+        "In what topic area do you have the most authority, proven results, or a track record (click all that apply)?",
       options: [],
     },
   ]);

@@ -26,15 +26,48 @@ export default function Index() {
                   <div id="mc_embed_signup_scroll">
                     <div>
                       <br />
+                      <b>Get Your Results</b>
                       <h2
                         style={{
                           color: "rgb(107, 106, 106)",
                           fontSize: "large",
                         }}
-                        className="texts"
+                        className=""
                       >
-                        Great Job, You’ve Finished the Quiz!
+                        <b>
+                          Getting those together for you as we speak *drumroll
+                          please* 🥁{" "}
+                        </b>
                       </h2>
+
+                      <p className="texts">
+                        Only thing left for you to do now, is for you to enter
+                        your name and email address below, and you'll get access
+                        to your results immediately.
+                      </p>
+
+                      <p className="texts">
+                        And if you happen to be wondering, “Sooo...why does
+                        Brandhyze need my name and email?” Well, it's because
+                        I'm about to show you exactly how you can
+                        <b>
+                          take action, grow your business, and create the life
+                          you have always wanted.
+                        </b>
+                      </p>
+
+                      <p className="texts">
+                        This info is just too valuable to get lost in our sea of
+                        everyday emails, and if we keep in touch... you will
+                        always have your results in your inbox, and accessible
+                        at your finger tips.
+                      </p>
+
+                      <p className="texts">
+                        But if by some small chance, having my support isn’t
+                        quite the right fit for you... don’t worry, you can
+                        unsubscribe at any time.
+                      </p>
 
                       <p
                         style={{ color: "rgb(107, 106, 106)" }}
@@ -107,7 +140,7 @@ export default function Index() {
                   <div className="clear">
                     <input
                       type="submit"
-                      value="See My Results"
+                      value="Get Me Those Results!"
                       name="subscribe"
                       className="button"
                     />
@@ -117,14 +150,14 @@ export default function Index() {
                       at any time.
                     </span>
                     <div>
-                      <span style={{ fontSize: "medium" }}>
+                      {/* <span style={{ fontSize: "medium" }}>
                         <a
                           className="skipcolor no-decoration"
                           href={process.env.PUBLIC_URL + "results.html"}
                         >
                           Skip subscription!
                         </a>
-                      </span>
+                      </span> */}
                     </div>
                   </div>
                 </form>
