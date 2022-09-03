@@ -16,9 +16,16 @@ export default function QuizBody() {
   const [fourth, setFourth] = useState(null);
   const [fifth, setFifth] = useState(null);
   const [sixth, setSixth] = useState(null);
+  const [checkedState, setCheckedState] = useState([
+    false,
+    false,
+    false,
+    false,
+  ]);
   const [count, setCount] = useState(0);
   const [option, setOption] = useState(["", "", "", ""]);
   const [optioned, setOptioned] = useState([]);
+  const [calculation, setCalculation] = useState([]);
   const [data, setData] = useState([
     {
       //1
@@ -62,7 +69,7 @@ export default function QuizBody() {
     {
       //7
       question:
-        "In what topic area do you have the most authority, proven results, or a track record (click all that apply)?",
+        "In what topic area do you have the most: authority, proven results, or a track record (click all that apply)?",
       options: [],
     },
   ]);
@@ -109,10 +116,18 @@ export default function QuizBody() {
     console.log("success5", e.target.value);
     setFifth(e.target.value);
   }
-  function handleChangeSix(e) {
-    console.log("success5", e.target.value);
-    setSixth(e.target.value);
-  }
+  // function handleChangeSix(e) {
+  //   console.log("successfinale", e.target.value);
+  //   console.log("successfinalechecked", e.target.checked);
+  //   setSixth(e.target.value);
+  // }
+  const handleChangeSix = (position) => {
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedState(updatedCheckedState);
+  };
   function nextHandler() {
     let mycount = 0;
     if (count == 0) {
@@ -178,6 +193,7 @@ export default function QuizBody() {
       }
     }
     if (count == 6) {
+      console.log(sixth, "six");
       if (sixth != "" && sixth != null) {
         setError("");
         setCount(count + 1);
@@ -207,10 +223,25 @@ export default function QuizBody() {
     //   console.log(itm);
 
     // });
-    var arr1 = [first, second, third, fourth, fifth, sixth];
+    var arr1 = [first, second, third, fourth, fifth];
+
+    console.log(arr1, "arr1");
+    console.log(checkedState, "checked");
+    let sixthArr = [];
+    checkedState.map((itm, idx) => {
+      if (itm == true) {
+        sixthArr.push(idx);
+      }
+    });
+    // arr1.push(sixthArr);
+    sixthArr.map((itmm) => {
+      arr1.push(itmm);
+    });
+    console.log(sixthArr, "filtered");
     var mf = 1;
     var m = 0;
     var item;
+    console.log(arr1, "onGoing");
     for (var i = 0; i < arr1.length; i++) {
       for (var j = i; j < arr1.length; j++) {
         if (arr1[i] == arr1[j]) m++;
@@ -448,6 +479,7 @@ export default function QuizBody() {
                 )}
               </div>
             )}
+
             {count == 6 && (
               <div>
                 {data[6].options.map(
@@ -455,19 +487,29 @@ export default function QuizBody() {
                     itm != "" && (
                       <p key={index}>
                         <input
+                          type="checkbox"
+                          onChange={() => handleChangeSix(index)}
+                          checked={checkedState[index]}
+                          key={index}
+                          name={`q${6}`}
                           value={index}
-                          type="radio"
+                          id={`q${6}${index}`}
+                        />
+                        {/* <input
+                          value={index}
+                          type="checkbox"
                           id={`q${6}${index}`}
                           name={`q${6}`}
                           checked={index == sixth}
                           onChange={handleChangeSix}
-                        />
+                        /> */}
                         <label htmlFor={`q${6}${index}`}>{itm}</label>
                       </p>
                     )
                 )}
               </div>
             )}
+
             {/* </fieldset> */}
             {/* {data.map((itm, index) => ( */}
             {/* <p>

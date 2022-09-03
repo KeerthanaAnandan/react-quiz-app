@@ -2,14 +2,14 @@
   display: none;
 }
 .texts {
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
 .footer-container {
   display: flex;
   flex-direction: row !important;
   justify-content: center;
   align-items: center;
-  color: rgb(107, 106, 106);
+  color: #000;
   width: 100vw !important;
   height: 100vh !important;
   margin: auto !important;
@@ -89,7 +89,7 @@
   height: 50px;
   border-radius: 3px;
 
-  color: rgb(107, 106, 106);
+  color: #000;
   transition: 0.5s;
   margin: auto;
 }
@@ -133,7 +133,7 @@ form input[type="submit"] {
 
   padding: 3px 20px;
   border: none;
-
+  outline: none;
   text-decoration: none;
 }
 

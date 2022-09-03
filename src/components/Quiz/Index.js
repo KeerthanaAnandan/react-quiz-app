@@ -10,7 +10,7 @@ export default function Quiz() {
   //   console.log(e.target.value, "sus");
   // });
   window.addEventListener("storage", () => {
-    console.log("change to local storage!");
+    // console.log("change to local storage!");
     setCount(localStorage.getItem("count"));
   });
   return (

@@ -34,7 +34,7 @@ export default function Index() {
                         }}
                         className=""
                       >
-                        <b>
+                        <b style={{ color: "black" }}>
                           Getting those together for you as we speak *drumroll
                           please* 🥁{" "}
                         </b>
@@ -49,7 +49,7 @@ export default function Index() {
                       <p className="texts">
                         And if you happen to be wondering, “Sooo...why does
                         Brandhyze need my name and email?” Well, it's because
-                        I'm about to show you exactly how you can
+                        I'm about to show you exactly how you can &nbsp;
                         <b>
                           take action, grow your business, and create the life
                           you have always wanted.
@@ -69,13 +69,13 @@ export default function Index() {
                         unsubscribe at any time.
                       </p>
 
-                      <p
+                      {/* <p
                         style={{ color: "rgb(107, 106, 106)" }}
                         className="texts"
                       >
                         “We would like to keep in touch with you, tell us where
                         to find you ? and get recommendations based your results
-                      </p>
+                      </p> */}
                     </div>
                   </div>
 
@@ -145,10 +145,10 @@ export default function Index() {
                       className="button"
                     />
                     <br />
-                    <span style={{ fontSize: "small" }}>
+                    {/* <span style={{ fontSize: "small" }}>
                       Don't worry, we hate spam as much as you do. Unsubscribe
                       at any time.
-                    </span>
+                    </span> */}
                     <div>
                       {/* <span style={{ fontSize: "medium" }}>
                         <a
