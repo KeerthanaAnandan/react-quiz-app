@@ -22,10 +22,16 @@ export default function QuizBody() {
     false,
     false,
   ]);
+  const [checkedState1, setCheckedState1] = useState([
+    false,
+    false,
+    false,
+    false,
+  ]);
   const [count, setCount] = useState(0);
   const [option, setOption] = useState(["", "", "", ""]);
   const [optioned, setOptioned] = useState([]);
-  const [calculation, setCalculation] = useState([]);
+
   const [data, setData] = useState([
     {
       //1
@@ -112,9 +118,14 @@ export default function QuizBody() {
     console.log("success4", e.target.value);
     setFourth(e.target.value);
   }
-  function handleChangeFive(e) {
-    console.log("success5", e.target.value);
-    setFifth(e.target.value);
+  function handleChangeFive(position) {
+    // console.log("success5", e.target.value);
+    // setFifth(e.target.value);
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedState(updatedCheckedState);
   }
   // function handleChangeSix(e) {
   //   console.log("successfinale", e.target.value);
@@ -122,11 +133,11 @@ export default function QuizBody() {
   //   setSixth(e.target.value);
   // }
   const handleChangeSix = (position) => {
-    const updatedCheckedState = checkedState.map((item, index) =>
+    const updatedCheckedState = checkedState1.map((item, index) =>
       index === position ? !item : item
     );
 
-    setCheckedState(updatedCheckedState);
+    setCheckedState1(updatedCheckedState);
   };
   function nextHandler() {
     let mycount = 0;
@@ -184,30 +195,47 @@ export default function QuizBody() {
         setError("Select any option!");
       }
     }
+    //6
     if (count == 5) {
-      if (fifth != "" && fifth != null) {
+      console.log(fifth, "five");
+      let fcount = 0;
+      checkedState.map((itm) => {
+        if (itm == false) {
+          fcount += 1;
+        }
+      });
+      // if (fifth != "" && fifth != null) {
+      if (fcount < 4) {
         setError("");
         setCount(count + 1);
       } else {
         setError("Select any option!");
       }
     }
-    if (count == 6) {
-      console.log(sixth, "six");
-      if (sixth != "" && sixth != null) {
-        setError("");
-        setCount(count + 1);
-      } else {
-        setError("Select any option!");
-      }
-    }
+    //7
+    // if (count == 6) {
+    //   console.log(sixth, "six");
+    //   if (sixth != "" && sixth != null) {
+    //     setError("");
+    //     setCount(count + 1);
+    //   } else {
+    //     setError("Select any option!");
+    //   }
+    // }
     // if (count == 5) {
     //   // history.push("/home");
     //   console.log(zero, first, second, third, fourth, fifth);
     // }
   }
   function finalNextHandler() {
-    if (sixth != "") {
+    let fcount = 0;
+    checkedState1.map((itm) => {
+      if (itm == false) {
+        fcount += 1;
+      }
+    });
+    if (fcount < 4) {
+      // if (sixth != "") {
       setError("");
       goNext();
       console.log("final going ");
@@ -227,14 +255,23 @@ export default function QuizBody() {
 
     console.log(arr1, "arr1");
     console.log(checkedState, "checked");
+    let fifthArr = [];
     let sixthArr = [];
     checkedState.map((itm, idx) => {
+      if (itm == true) {
+        fifthArr.push(idx);
+      }
+    });
+    checkedState1.map((itm, idx) => {
       if (itm == true) {
         sixthArr.push(idx);
       }
     });
     // arr1.push(sixthArr);
     sixthArr.map((itmm) => {
+      arr1.push(itmm);
+    });
+    fifthArr.map((itmm) => {
       arr1.push(itmm);
     });
     console.log(sixthArr, "filtered");
@@ -467,11 +504,11 @@ export default function QuizBody() {
                       <p key={index}>
                         <input
                           value={index}
-                          type="radio"
+                          type="checkbox"
                           id={`q${5}${index}`}
                           name={`q${5}`}
-                          checked={index == fifth}
-                          onChange={handleChangeFive}
+                          onChange={() => handleChangeFive(index)}
+                          checked={checkedState[index]}
                         />
                         <label htmlFor={`q${5}${index}`}>{itm}</label>
                       </p>
@@ -489,7 +526,7 @@ export default function QuizBody() {
                         <input
                           type="checkbox"
                           onChange={() => handleChangeSix(index)}
-                          checked={checkedState[index]}
+                          checked={checkedState1[index]}
                           key={index}
                           name={`q${6}`}
                           value={index}
