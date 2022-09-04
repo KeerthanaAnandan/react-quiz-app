@@ -101,7 +101,6 @@ export default function Results() {
         {/* <video width="500px" height="500px" controls="controls">
           <source src={vid} type="video/mp4" />
         </video> */}
-        <br />
       </div>
     </div>
   );

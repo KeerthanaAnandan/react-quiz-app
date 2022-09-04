@@ -4,7 +4,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  min-height: 100vh;
+  min-height: 140vh;
   /* position: relative; */
   /* box-shadow: inset 0 0 0 1000px rgba(230, 71, 137, 0.2); */
 }
@@ -24,7 +24,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 140%;
 }
 .results-text-margin {
   margin-left: 20px;
@@ -91,7 +91,7 @@
     left: 0;
     width: 100%; */
     /* height: 130%; */
-    height: max-content;
+    /* height: 150%; */
   }
   .click-img {
     display: none;

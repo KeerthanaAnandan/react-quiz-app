@@ -45,8 +45,15 @@ export default function Index() {
                         your name and email address below, and you'll get access
                         to your results immediately.
                       </p>
-
                       <p className="texts">
+                        And if you happen to be wondering, “Sooo...why does
+                        Brandhyze need my name and email?” Well, it's because
+                        I'm about to show you exactly how you can take action,
+                        grow your business, and create the life you have always
+                        wanted. Plus, I also want you to always have your
+                        results at your finger tips -- in your inbox.
+                      </p>
+                      {/* <p className="texts">
                         And if you happen to be wondering, “Sooo...why does
                         Brandhyze need my name and email?” Well, it's because
                         I'm about to show you exactly how you can &nbsp;
@@ -54,14 +61,14 @@ export default function Index() {
                           take action, grow your business, and create the life
                           you have always wanted.
                         </b>
-                      </p>
+                      </p> */}
 
-                      <p className="texts">
+                      {/* <p className="texts">
                         This info is just too valuable to get lost in our sea of
                         everyday emails, and if we keep in touch... you will
                         always have your results in your inbox, and accessible
                         at your finger tips.
-                      </p>
+                      </p> */}
 
                       <p className="texts">
                         But if by some small chance, having my support isn’t
@@ -80,12 +87,26 @@ export default function Index() {
                   </div>
 
                   <div className="mc-field-group">
-                    <label htmlFor="mce-FNAME"> Name </label>
+                    <label htmlFor="mce-FNAME">First Name</label>
                     <input
                       type="text"
                       name="FNAME"
                       className=""
                       id="mce-FNAME"
+                    />
+                  </div>
+                  {/* <div class="mc-field-group">
+	<label for="mce-LNAME">Last Name </label>
+	<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+	<span id="mce-LNAME-HELPERTEXT" class="helper_text"></span>
+</div> */}
+                  <div className="mc-field-group">
+                    <label htmlFor="mce-LNAME">Last Name</label>
+                    <input
+                      type="text"
+                      name="LNAME"
+                      className=""
+                      id="mce-LNAME"
                     />
                   </div>
                   <div className="mc-field-group">
@@ -145,6 +166,7 @@ export default function Index() {
                       className="button"
                     />
                     <br />
+
                     {/* <span style={{ fontSize: "small" }}>
                       Don't worry, we hate spam as much as you do. Unsubscribe
                       at any time.

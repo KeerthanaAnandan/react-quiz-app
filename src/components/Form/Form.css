@@ -2,7 +2,7 @@
   display: none;
 }
 .texts {
-  font-size: 14px !important;
+  font-size: 16px !important;
 }
 .footer-container {
   display: flex;
@@ -76,7 +76,7 @@
   align-items: center;
   justify-content: center;
   justify-items: center;
-  font-size: 20px;
+  font-size: 22px;
 
   text-align: center;
 }
@@ -93,6 +93,9 @@
   color: #000;
   transition: 0.5s;
   margin: auto;
+}
+form input[type="text"] {
+  font-size: medium;
 }
 form > input:focus {
   outline: none;
@@ -252,7 +255,7 @@ form input[type="submit"] {
     /* max-width: 70vw; */
   }
   .texts {
-    font-size: 10px;
+    font-size: 13px;
     line-height: 20px;
   }
 

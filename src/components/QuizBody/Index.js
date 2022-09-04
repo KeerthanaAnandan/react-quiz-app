@@ -50,7 +50,8 @@ export default function QuizBody() {
       //3
       question:
         // "What communities/types of people are interested in the topics you want to teach (ie twenty-somethings out of college, retirees, minority moms etc)?",
-        "Out of the audiences interested in each of these topics, which one of these audiences are you most passionate about teaching?",
+        // "Out of the audiences interested in each of these topics, which one of these audiences are you most passionate about teaching?",
+        "Which of these topics are you most passionate about teaching?",
       options: [],
     },
     {
@@ -75,7 +76,7 @@ export default function QuizBody() {
     {
       //7
       question:
-        "In what topic area do you have the most: authority, proven results, or a track record (click all that apply)?",
+        "In what topic area do you have the most: authority, proven results, or a track record?",
       options: [],
     },
   ]);
@@ -127,18 +128,18 @@ export default function QuizBody() {
 
     setCheckedState(updatedCheckedState);
   }
-  // function handleChangeSix(e) {
-  //   console.log("successfinale", e.target.value);
-  //   console.log("successfinalechecked", e.target.checked);
-  //   setSixth(e.target.value);
-  // }
-  const handleChangeSix = (position) => {
-    const updatedCheckedState = checkedState1.map((item, index) =>
-      index === position ? !item : item
-    );
+  function handleChangeSix(e) {
+    console.log("successfinale", e.target.value);
+    console.log("successfinalechecked", e.target.checked);
+    setSixth(e.target.value);
+  }
+  // const handleChangeSix = (position) => {
+  //   const updatedCheckedState = checkedState1.map((item, index) =>
+  //     index === position ? !item : item
+  //   );
 
-    setCheckedState1(updatedCheckedState);
-  };
+  //   setCheckedState1(updatedCheckedState);
+  // };
   function nextHandler() {
     let mycount = 0;
     if (count == 0) {
@@ -228,14 +229,14 @@ export default function QuizBody() {
     // }
   }
   function finalNextHandler() {
-    let fcount = 0;
-    checkedState1.map((itm) => {
-      if (itm == false) {
-        fcount += 1;
-      }
-    });
-    if (fcount < 4) {
-      // if (sixth != "") {
+    // let fcount = 0;
+    // checkedState1.map((itm) => {
+    //   if (itm == false) {
+    //     fcount += 1;
+    //   }
+    // });
+    // if (fcount < 4) {
+    if (sixth != "") {
       setError("");
       goNext();
       console.log("final going ");
@@ -523,7 +524,7 @@ export default function QuizBody() {
                   (itm, index) =>
                     itm != "" && (
                       <p key={index}>
-                        <input
+                        {/* <input
                           type="checkbox"
                           onChange={() => handleChangeSix(index)}
                           checked={checkedState1[index]}
@@ -531,15 +532,15 @@ export default function QuizBody() {
                           name={`q${6}`}
                           value={index}
                           id={`q${6}${index}`}
-                        />
-                        {/* <input
+                        /> */}
+                        <input
                           value={index}
                           type="checkbox"
                           id={`q${6}${index}`}
                           name={`q${6}`}
                           checked={index == sixth}
                           onChange={handleChangeSix}
-                        /> */}
+                        />
                         <label htmlFor={`q${6}${index}`}>{itm}</label>
                       </p>
                     )
